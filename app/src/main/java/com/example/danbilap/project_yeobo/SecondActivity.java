@@ -22,6 +22,7 @@ public class SecondActivity extends AppCompatActivity
 
     String t_title, id, url, image;
     int t_num;
+
     TextView title;
 
 
@@ -43,10 +44,10 @@ public class SecondActivity extends AppCompatActivity
         t_title = bundle.getString("t_title");
         title.setText(t_title);
 
-        t_num = bundle.getInt("t_num");
+        t_num = bundle.getInt("t_num");//자기후기쓰고 자기가쓴거 보이기, 다른 사람이 그 도시에 대해서 쓴것들
         id = bundle.getString("u_id");
         url = bundle.getString("url");
-         int c_num=bundle.getInt("c_num");
+        int c_num=bundle.getInt("c_num");// 다른 사람이 그 도시에 대해서 쓴것들
         if(c_num>=9)
             c_num=c_num+22;
 //        image=bundle.getString("imgurl");
@@ -70,7 +71,7 @@ public class SecondActivity extends AppCompatActivity
 
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
         fragmentArrayList.add(new TestFragment1());
-        fragmentArrayList.add(new TestFragment2());
+        fragmentArrayList.add(TestFragment2.newInstance(t_num,c_num));
         fragmentArrayList.add(new TestFragment3());
         fragmentArrayList.add(TestFragment4.newInstance(c_num));
 
